@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://cm0hevwye5so0"]
 
-[ext_resource type="Texture2D" uid="uid://p0p7pxoq7njw" path="res://images/RAM - very valuable.png" id="1_avcte"]
+[ext_resource type="Texture2D" uid="uid://cp7y1t4iil5il" path="res://images/AND gate - closed.png" id="1_avcte"]
 
 [sub_resource type="GDScript" id="GDScript_eae6q"]
 resource_name = "EndPortalScript"
 script/source = "extends Area2D
 
-
+signal open
+var opened=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -18,24 +19,54 @@ func _process(delta: float) -> void:
 
 
 func _on_player_all_coins() -> void:
-	pass # Replace with function body.
+	emit_signal(\"open\")
+	opened=true
+
+func _on_body_entered(body: Node) ->void:
+	if opened:
+		hide()
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eae6q"]
-size = Vector2(31.644888, 8.485282)
+[sub_resource type="GDScript" id="GDScript_avcte"]
+resource_name = "EndPortalLooks"
+script/source = "extends Sprite2D
+
+signal switch
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_end_portal_open() -> void:
+	texture=preload(\"res://images/AND gate - opening.png\")
+	await get_tree().create_timer(0.5).timeout
+	texture=preload(\"res://images/AND gate - still opening.png\")
+	await get_tree().create_timer(0.5).timeout
+	texture=preload(\"res://images/AND gate - ready.png\")
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u16a4"]
+radius = 80.00001
+height = 198.00002
 
 [node name="EndPortal" type="Area2D" unique_id=1142453244]
 collision_layer = 0
 script = SubResource("GDScript_eae6q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=472706668]
-scale = Vector2(0.6, 0.6)
+rotation = 1.5707964
 texture = ExtResource("1_avcte")
+script = SubResource("GDScript_avcte")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=605632141]
-position = Vector2(-0.6471689, -4.54304)
-rotation = 0.6981317
+position = Vector2(18.999998, -3.000002)
+rotation = 1.5707964
 scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_eae6q")
+shape = SubResource("CapsuleShape2D_u16a4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="open" from="." to="Sprite2D" method="_on_end_portal_open"]

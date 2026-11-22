@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cm0hevwye5so0"]
+
+[ext_resource type="Texture2D" uid="uid://p0p7pxoq7njw" path="res://images/RAM - very valuable.png" id="1_avcte"]
+
+[sub_resource type="GDScript" id="GDScript_eae6q"]
+resource_name = "EndPortalScript"
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_player_all_coins() -> void:
+	pass # Replace with function body.
+"
+
+[sub_resource type="GDScript" id="GDScript_avcte"]
+resource_name = "EndPortalLooks"
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+func _on_player_all_coins() -> void:
+	texture=preload(\"res://images/AND gate - opening.png\")
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eae6q"]
+size = Vector2(31.644888, 8.485282)
+
+[node name="EndPortal" type="Area2D" unique_id=1142453244]
+collision_layer = 0
+script = SubResource("GDScript_eae6q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=472706668]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_avcte")
+script = SubResource("GDScript_avcte")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=605632141]
+position = Vector2(-0.6471689, -4.54304)
+rotation = 0.6981317
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_eae6q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

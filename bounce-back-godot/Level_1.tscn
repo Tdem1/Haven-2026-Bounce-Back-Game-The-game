@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d2g5r2lv8mcfn" path="res://coin.tscn" id="2_kidjj"]
 [ext_resource type="PackedScene" uid="uid://6nvteqthm4rt" path="res://player.tscn" id="3_65pcf"]
 [ext_resource type="PackedScene" uid="uid://caaaib4yxiuv6" path="res://switch.tscn" id="4_a0j4s"]
+[ext_resource type="PackedScene" uid="uid://cm0hevwye5so0" path="res://end_portal.tscn" id="6_u16a4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
 
@@ -174,5 +175,17 @@ position = Vector2(1586, -152)
 rotation = 1.5699859
 scale = Vector2(2.0401282, 1.7599413)
 
+[node name="EndPortal" parent="." unique_id=672464198 instance=ExtResource("6_u16a4")]
+position = Vector2(3233, -769)
+
+[connection signal="all_coins" from="Player" to="EndPortal" method="_on_player_all_coins"]
 [connection signal="get_coin" from="CoinSet/Coin" to="Player" method="_on_coin_get_coin"]
 [connection signal="get_coin" from="CoinSet/Coin2" to="Player" method="_on_coin_get_coin"]
+[connection signal="get_coin" from="CoinSet/Coin3" to="Player" method="_on_coin_get_coin"]
+[connection signal="get_coin" from="CoinSet/Coin4" to="Player" method="_on_coin_get_coin"]
+[connection signal="get_coin" from="CoinSet/Coin5" to="Player" method="_on_coin_get_coin"]
+[connection signal="get_coin" from="CoinSet/Coin6" to="Player" method="_on_coin_get_coin"]
+[connection signal="get_coin" from="CoinSet/Coin7" to="Player" method="_on_coin_get_coin"]
+[connection signal="get_coin" from="CoinSet/Coin8" to="Player" method="_on_coin_get_coin"]
+[connection signal="get_coin" from="CoinSet/Coin9" to="Player" method="_on_coin_get_coin"]
+[connection signal="get_coin" from="CoinSet/Coin10" to="Player" method="_on_coin_get_coin"]
