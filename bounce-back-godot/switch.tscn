@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://caaaib4yxiuv6"]
+
+[ext_resource type="Script" uid="uid://dit0h17clg4mm" path="res://switch.gd" id="1_8307x"]
+[ext_resource type="Texture2D" uid="uid://mp3vy2bpepvk" path="res://images/lever.png" id="2_ds62l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eae6q"]
+radius = 25.079872
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdrg0"]
+size = Vector2(60, 12)
+
+[node name="switch" type="StaticBody2D" unique_id=1017136601]
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("1_8307x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1566866750]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ds62l")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2019624010]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1268887647]
+position = Vector2(-2, 1)
+shape = SubResource("CircleShape2D_eae6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1676547045]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_tdrg0")

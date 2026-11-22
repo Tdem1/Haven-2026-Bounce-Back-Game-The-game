@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dt5jihffen6be" path="res://images/floor.png" id="1_jikk4"]
 [ext_resource type="PackedScene" uid="uid://d2g5r2lv8mcfn" path="res://coin.tscn" id="2_kidjj"]
 [ext_resource type="PackedScene" uid="uid://6nvteqthm4rt" path="res://player.tscn" id="3_65pcf"]
-[ext_resource type="PackedScene" uid="uid://cm0hevwye5so0" path="res://end_portal.tscn" id="4_a0j4s"]
+[ext_resource type="PackedScene" uid="uid://caaaib4yxiuv6" path="res://switch.tscn" id="4_a0j4s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
 
@@ -158,19 +158,21 @@ position = Vector2(2484, -1099)
 position = Vector2(-361, -144)
 
 [node name="Coin7" parent="CoinSet" unique_id=926570440 instance=ExtResource("2_kidjj")]
-position = Vector2(1633, -139)
+position = Vector2(1635, -73)
 
 [node name="Coin8" parent="CoinSet" unique_id=1418855102 instance=ExtResource("2_kidjj")]
-position = Vector2(1579, -81)
+position = Vector2(1608, -30)
 
 [node name="Coin9" parent="CoinSet" unique_id=1095052269 instance=ExtResource("2_kidjj")]
-position = Vector2(1664, -71)
+position = Vector2(1664, -30)
 
 [node name="Coin10" parent="CoinSet" unique_id=796010014 instance=ExtResource("2_kidjj")]
 position = Vector2(1396, -646)
 
-[node name="EndPortal" parent="." unique_id=1999442705 instance=ExtResource("4_a0j4s")]
+[node name="switch" parent="." unique_id=129136398 instance=ExtResource("4_a0j4s")]
+position = Vector2(1586, -152)
+rotation = 1.5699859
+scale = Vector2(2.0401282, 1.7599413)
 
-[connection signal="all_coins" from="Player" to="EndPortal" method="_on_player_all_coins"]
 [connection signal="get_coin" from="CoinSet/Coin" to="Player" method="_on_coin_get_coin"]
 [connection signal="get_coin" from="CoinSet/Coin2" to="Player" method="_on_coin_get_coin"]
