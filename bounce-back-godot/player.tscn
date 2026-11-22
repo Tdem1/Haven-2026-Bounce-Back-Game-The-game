@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://6nvteqthm4rt"]
+
+[ext_resource type="Script" uid="uid://b8e3wxbnsyyh7" path="res://player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://cbkmcpft6dnwj" path="res://images/pixil-frame-0.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dseagiw7svaj1" path="res://images/Blob protagonist.png" id="3_sweqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohcbr"]
+size = Vector2(102.5, 101.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eae6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hqtel")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sweqy")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=348473097]
+collision_layer = 255
+collision_mask = 255
+platform_wall_layers = 247
+script = ExtResource("1_i3pqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2104157276]
+position = Vector2(7.25, -2.25)
+shape = SubResource("RectangleShape2D_ohcbr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1183841567]
+zoom = Vector2(0.5, 0.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1015809170]
+sprite_frames = SubResource("SpriteFrames_eae6q")
+animation = &"jump"

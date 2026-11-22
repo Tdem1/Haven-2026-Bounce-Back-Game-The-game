@@ -3,8 +3,9 @@ extends CharacterBody2D
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -900.0
-var air_count=0
-
+var coins=0
+func get_coin():
+	coins+=1
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
