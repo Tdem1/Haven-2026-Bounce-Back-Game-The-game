@@ -5,7 +5,7 @@ var inside=false
 signal flip
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("switch_flip") and inside:
+	if inside:
 		emit_signal("flip")		
 		scale.x=-1
 

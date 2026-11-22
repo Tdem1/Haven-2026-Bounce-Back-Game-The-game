@@ -171,7 +171,7 @@ position = Vector2(1664, -30)
 position = Vector2(1396, -646)
 
 [node name="switch" parent="." unique_id=129136398 instance=ExtResource("4_a0j4s")]
-position = Vector2(1586, -152)
+position = Vector2(502, -65.99999)
 rotation = 1.5699859
 scale = Vector2(2.0401282, 1.7599413)
 
