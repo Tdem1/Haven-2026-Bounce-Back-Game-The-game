@@ -93,6 +93,7 @@ tile_map_data = PackedByteArray("AAD9/wYAAAAAAAAAAAD9/wcAAAAAAAEAAAD9/wgAAAAAAAI
 tile_set = SubResource("TileSet_bi4ei")
 
 [node name="Player" parent="." unique_id=348473097 instance=ExtResource("3_65pcf")]
+position = Vector2(-7, -13)
 
 [node name="CoinSet" type="Node" parent="." unique_id=827978424]
 
@@ -101,6 +102,30 @@ position = Vector2(1155, -253)
 
 [node name="Coin2" parent="CoinSet" unique_id=130487742 instance=ExtResource("2_kidjj")]
 position = Vector2(1024, 35)
+
+[node name="Coin3" parent="CoinSet" unique_id=1284330008 instance=ExtResource("2_kidjj")]
+position = Vector2(4485, -191)
+
+[node name="Coin4" parent="CoinSet" unique_id=1714250225 instance=ExtResource("2_kidjj")]
+position = Vector2(2964, -599)
+
+[node name="Coin5" parent="CoinSet" unique_id=683141360 instance=ExtResource("2_kidjj")]
+position = Vector2(2484, -1099)
+
+[node name="Coin6" parent="CoinSet" unique_id=1945972699 instance=ExtResource("2_kidjj")]
+position = Vector2(-361, -144)
+
+[node name="Coin7" parent="CoinSet" unique_id=926570440 instance=ExtResource("2_kidjj")]
+position = Vector2(1633, -139)
+
+[node name="Coin8" parent="CoinSet" unique_id=1418855102 instance=ExtResource("2_kidjj")]
+position = Vector2(1579, -81)
+
+[node name="Coin9" parent="CoinSet" unique_id=1095052269 instance=ExtResource("2_kidjj")]
+position = Vector2(1664, -71)
+
+[node name="Coin10" parent="CoinSet" unique_id=796010014 instance=ExtResource("2_kidjj")]
+position = Vector2(1396, -646)
 
 [connection signal="get_coin" from="CoinSet/Coin" to="Player" method="_on_coin_get_coin"]
 [connection signal="get_coin" from="CoinSet/Coin2" to="Player" method="_on_coin_get_coin"]
