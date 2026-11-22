@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://b8e3wxbnsyyh7" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://br858wtasriv6" path="res://images/stepping-stone.png" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cbkmcpft6dnwj" path="res://images/pixil-frame-0.png" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cs3byun7k888i" path="res://images/resue symbol.png" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://ct2wx3g8mxs0f" path="res://button.gd" id="6_272bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohcbr"]
 size = Vector2(102.5, 101.5)
@@ -124,6 +126,24 @@ shape = SubResource("RectangleShape2D_ohcbr")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=812836239]
 zoom = Vector2(0.5, 0.5)
+
+[node name="Control" type="Control" parent="Player/Camera2D" unique_id=1727006360]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="rescure button" type="Button" parent="Player/Camera2D/Control" unique_id=909196143]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 178.0
+offset_bottom = 178.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-1000, 100)
+icon = ExtResource("5_7mycd")
+flat = true
+script = ExtResource("6_272bh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1569110511]
 sprite_frames = SubResource("SpriteFrames_eae6q")
