@@ -7,8 +7,6 @@
 resource_name = "switch-collisions"
 script/source = "extends Area2D
 
-signal enter
-signal exit
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,11 +15,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
-func _on_body_entered(body: Node) -> void:
-	emit_signal(\"enter\")
-func _on_body_exited(body: Node) -> void:
-	emit_signal(\"exit\")
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eae6q"]
@@ -49,5 +42,5 @@ shape = SubResource("CircleShape2D_eae6q")
 position = Vector2(1, 23)
 shape = SubResource("RectangleShape2D_tdrg0")
 
-[connection signal="enter" from="Area2D" to="." method="_on_enter"]
-[connection signal="exit" from="Area2D" to="." method="_on_exit"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_enter"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_exit"]
