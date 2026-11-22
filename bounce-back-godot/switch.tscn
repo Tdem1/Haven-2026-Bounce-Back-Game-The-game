@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dit0h17clg4mm" path="res://switch.gd" id="1_8307x"]
 [ext_resource type="Texture2D" uid="uid://mp3vy2bpepvk" path="res://images/lever.png" id="2_ds62l"]
+[ext_resource type="Script" uid="uid://dpwr2wu8eer5a" path="res://area_2d.gd" id="3_ds62l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eae6q"]
 radius = 25.079872
@@ -14,11 +15,12 @@ collision_layer = 255
 collision_mask = 255
 script = ExtResource("1_8307x")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1566866750]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1938851296]
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_ds62l")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2019624010]
+script = ExtResource("3_ds62l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1268887647]
 position = Vector2(-2, 1)
