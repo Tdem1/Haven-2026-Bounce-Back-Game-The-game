@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://d2g5r2lv8mcfn"]
 
-[ext_resource type="Texture2D" uid="uid://dw0qdbpewssdn" path="res://images/coin.png" id="1_d5gmh"]
+[ext_resource type="Texture2D" uid="uid://bsgjmm06e02dy" path="res://images/(bit)coin.png" id="1_d5gmh"]
+[ext_resource type="Texture2D" uid="uid://bjpc4sjk5et28" path="res://images/(bit)coinSparkle.png" id="2_0t63x"]
 
 [sub_resource type="GDScript" id="GDScript_1bvp3"]
 script/source = "extends Area2D
 
 signal get_coin
-
+var rand=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().create_timer(rand.randf_range(0,1)).timeout
+	$Sprite2D.play()
 	pass # Replace with function body.
 
 
@@ -24,6 +27,20 @@ func _on_body_entered(body: Node) -> void:
 	queue_free()
 "
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_eae6q"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("1_d5gmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0t63x")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_eae6q"]
 radius = 25.079872
 
@@ -31,9 +48,9 @@ radius = 25.079872
 collision_layer = 0
 script = SubResource("GDScript_1bvp3")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=688350087]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_d5gmh")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1457645822]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_eae6q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=605632141]
 shape = SubResource("CircleShape2D_eae6q")
