@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://xcx0pf8u58wr" path="res://images/carpet.png" id="2_7j8ne"]
 [ext_resource type="PackedScene" uid="uid://6nvteqthm4rt" path="res://player.tscn" id="3_7dov7"]
 [ext_resource type="PackedScene" uid="uid://d2g5r2lv8mcfn" path="res://coin.tscn" id="4_ehv2h"]
-[ext_resource type="PackedScene" uid="uid://caaaib4yxiuv6" path="res://switch.tscn" id="5_15wb7"]
 [ext_resource type="PackedScene" uid="uid://cm0hevwye5so0" path="res://end_portal.tscn" id="6_eoq84"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
@@ -181,7 +180,8 @@ func _process(delta: float) -> void:
 	pass
 
 
-func end() -> void:
+
+func done() -> void:
 	get_tree().change_scene_to_file(\"res://level_3.tscn\")
 "
 
@@ -226,11 +226,6 @@ position = Vector2(4177, -478)
 [node name="Coin10" parent="CoinSet" unique_id=796010014 instance=ExtResource("4_ehv2h")]
 position = Vector2(130, -1607)
 
-[node name="switch" parent="." unique_id=129136398 instance=ExtResource("5_15wb7")]
-position = Vector2(2948.0002, -432)
-rotation = 0.010122299
-scale = Vector2(2.0401282, 1.7599413)
-
 [node name="EndPortal" parent="." unique_id=672464198 instance=ExtResource("6_eoq84")]
 position = Vector2(2788, -2468)
 
@@ -245,4 +240,4 @@ position = Vector2(2788, -2468)
 [connection signal="get_coin" from="CoinSet/Coin8" to="Player" method="_on_coin_get_coin"]
 [connection signal="get_coin" from="CoinSet/Coin9" to="Player" method="_on_coin_get_coin"]
 [connection signal="get_coin" from="CoinSet/Coin10" to="Player" method="_on_coin_get_coin"]
-[connection signal="flip" from="switch" to="Player" method="_on_switch_flip"]
+[connection signal="done" from="EndPortal" to="." method="done"]
