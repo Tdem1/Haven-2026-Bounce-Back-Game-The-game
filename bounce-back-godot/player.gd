@@ -4,7 +4,8 @@ extends CharacterBody2D
 const SPEED = 600.0
 const JUMP_VELOCITY = -900.0
 var coins=0
-
+var max_coins=10
+signal all_coins
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -33,3 +34,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_coin_get_coin():
 	coins+=1
+	if coins==max_coins:
+		emit_signal("all_coins")
