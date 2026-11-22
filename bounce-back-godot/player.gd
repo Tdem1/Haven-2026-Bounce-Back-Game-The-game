@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	if  is_on_floor():
 		$AnimatedSprite2D.animation="walk"
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and $AnimatedSprite2D.animation=="walk":
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up")) and $AnimatedSprite2D.animation=="walk":
 		velocity.y = JUMP_VELOCITY
 		$AnimatedSprite2D.animation="jump"
 
