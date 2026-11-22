@@ -16,6 +16,9 @@ func _physics_process(delta: float) -> void:
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up")) and $AnimatedSprite2D.animation=="walk":
 		velocity.y = JUMP_VELOCITY
 		$AnimatedSprite2D.animation="jump"
+		
+	if Input.is_action_just_pressed("respawn"):
+		position = Vector2(0,0)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
