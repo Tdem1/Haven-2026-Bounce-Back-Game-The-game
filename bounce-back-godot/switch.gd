@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var inside=false
+var inside = false
 
 signal flip
 
@@ -10,8 +10,8 @@ func _process(delta: float) -> void:
 		scale.x=-1
 
 func _on_enter() -> void:
-	inside=true
+	inside = true
 	hide()
 
 func _on_exit() -> void:
-	inside=false
+	inside = false
