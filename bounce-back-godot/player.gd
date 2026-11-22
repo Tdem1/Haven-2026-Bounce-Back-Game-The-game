@@ -5,6 +5,7 @@ const SPEED = 600.0
 const JUMP_VELOCITY = -900.0
 var coins=0
 var max_coins=10
+var switch = false
 signal all_coins
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -36,3 +37,7 @@ func _on_coin_get_coin():
 	coins+=1
 	if coins==max_coins:
 		emit_signal("all_coins")
+
+
+func _on_switch_flip() -> void:
+	hide()

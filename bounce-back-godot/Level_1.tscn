@@ -189,3 +189,4 @@ position = Vector2(3233, -769)
 [connection signal="get_coin" from="CoinSet/Coin8" to="Player" method="_on_coin_get_coin"]
 [connection signal="get_coin" from="CoinSet/Coin9" to="Player" method="_on_coin_get_coin"]
 [connection signal="get_coin" from="CoinSet/Coin10" to="Player" method="_on_coin_get_coin"]
+[connection signal="flip" from="switch" to="Player" method="_on_switch_flip"]
